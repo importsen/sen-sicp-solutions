@@ -31,7 +31,11 @@
    (- 6 2)
    (- 2 7)))
 
+"NOTE: EVERY OTHER SOLUTION RUNS AS LONG AS THE OTHER CODES FROM
+1.3-8 IS WITHIN THE STRINGS"
+
 #; 1.3-solution
+
 (define (sum-of-squares x y z)
   (+ (* x x) (* y y) (* z z)))
 (define (sum-of-squares-of-two-largest a b c)
@@ -94,9 +98,9 @@ arguements would be evaluated before the procedure is applied."
 (define (sqrt x)
   (sqrt-iter 1.0 0.0 x))
 
-(sqrt 1)
-(sqrt 9)
-(sqrt 100)
+(sqrt 1) #; 1.0
+(sqrt 9) #; 3.000000001396984
+(sqrt 100) #; 10.000000000139897
 
 "this works better with larger numbers because it will iterate
 more guesses to the square root with more guesses, the less guess
@@ -120,7 +124,7 @@ the closer to 1.0 it will be."
 (define (cbrt x)
   (cbrt-iter 1.0 0.0 x))
 
-(cbrt 1)
-(cbrt 8)
-(cbrt 27)
-(cbrt 1000)
+(cbrt 1) #; 0
+(cbrt 8) #; 000000000012062
+(cbrt 27) #; 0000000000000977
+(cbrt 1000) #; 000000000000002
