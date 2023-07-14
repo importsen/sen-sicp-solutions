@@ -59,13 +59,14 @@ their values are needed. so when (test) is called, it will check if
 without checking on (y) which would be (p), which will lead to a loop"
 
 #; 1.6-solution
-"(define (new-if predicate then-clause else-clause)
+
+(define (new-if predicate then-clause else-clause)
   (cond (predicate then-clause)
         (else else-clause)))
 (define (sqrt-iter guess x)
   (new-if (good-enough? guess x)
           guess
-          (sqrt-iter (improve guess x) x)))"
+          (sqrt-iter (improve guess x) x)))
 
 "if this program is ran, there would run a infinite loop. this is
 caused by the fact that new-if is it's own special form in scheme,
@@ -76,7 +77,7 @@ arguements would be evaluated before the procedure is applied."
 
 #; 1-7-solution
 
-"(define (average x y)
+(define (average x y)
   (/ (+ x y) 2))
 
 (define (improve guess x)
@@ -95,7 +96,7 @@ arguements would be evaluated before the procedure is applied."
 
 (sqrt 1)
 (sqrt 9)
-(sqrt 100)"
+(sqrt 100)
 
 "this works better with larger numbers because it will iterate
 more guesses to the square root with more guesses, the less guess
