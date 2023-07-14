@@ -76,7 +76,7 @@ arguements would be evaluated before the procedure is applied."
 
 #; 1-7-solution
 
-"(define (average x y)
+(define (average x y)
   (/ (+ x y) 2))
 
 (define (improve guess x)
@@ -95,7 +95,7 @@ arguements would be evaluated before the procedure is applied."
 
 (sqrt 1)
 (sqrt 9)
-(sqrt 100)"
+(sqrt 100)
 
 "this works better with larger numbers because it will iterate
 more guesses to the square root with more guesses, the less guess
@@ -103,23 +103,5 @@ the closer to 1.0 it will be."
 
 #; 1.18-solution
 
-(define (cube x) (* x x x))
 
-(define (improve guess x)
-  (/ (+ (* 2 guess) (/ x (* guess guess))) 3))
 
-(define (good-enough? guess prev-guess)
-  (< (abs (- guess prev-guess)) 0.001))
-
-(define (cbrt-iter guess prev-guess x)
-  (if (good-enough? guess prev-guess)
-      guess
-      (cbrt-iter (improve guess x) guess x)))
-
-(define (cbrt x)
-  (cbrt-iter 1.0 0.0 x))
-
-(cbrt 1)
-(cbrt 8)
-(cbrt 27)
-(cbrt 1000)
