@@ -1,5 +1,5 @@
 #lang sicp
-"1.1 solutions"
+#; 1.1-solutions
 10 #; 10
 (+ 5 3 4) #; 12
 (- 9 1) #; 8
