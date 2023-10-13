@@ -36,7 +36,7 @@
 
 #; 1.3-solution
 
-(define (sum-of-squares x y z)
+(define (sum-or-squares x y z)
   (+ (* x x) (* y y) (* z z)))
 (define (sum-of-squares-of-two-largest a b c)
   (- (sum-of-squares a b c) (* (min a b c) (min a b c))))
@@ -127,4 +127,4 @@ the closer to 1.0 it will be."
 (cbrt 1) #; 0
 (cbrt 8) #; 000000000012062
 (cbrt 27) #; 0000000000000977
-(cbrt 1000) #; 000000000000002
+(cbrt 1000) #; 00000000000000

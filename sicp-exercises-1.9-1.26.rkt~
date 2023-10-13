@@ -1,0 +1,48 @@
+#lang sicp
+
+#; 1.9-solution
+
+#; recursive-process
+
+#;(define (+ a b)
+  (if (= a 0)
+      b
+      (inc (+ (dec a) b))))
+
+#; "it can be thought as:"
+#; (inc (+ 2 2))
+#;  (inc (inc (+ 1 2)))
+#; (inc (inc (inc (+ 0 2))))
+#; (inc (inc (inc 2)))
+#;(inc (inc 3))
+#; (inc 4)
+#; 5
+
+#; Iterative-process
+
+#;(define (+ a b)
+  (if (= a 0)
+      b
+      (dec a (inc b))))
+
+#; (+ 3 2)
+
+#; 1.10-solution
+
+(define (A x y) 
+  (cond 
+    ((= y 0) 0) 
+    ((= x 0) (* 2 y)) 
+    ((= y 1) 2) 
+    (else (A (- x 1) (A x (- y 1))))))
+
+
+(A 1 10)
+#; 1024
+(A 2 4)
+#; 65536
+(A 3 3)
+#; 65536
+
+#; 1.22-solution
+
