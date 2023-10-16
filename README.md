@@ -1,2 +1,2 @@
-# sen-sicp-solutions
+# sicp
 my attempts to solve the exercises in sicp
