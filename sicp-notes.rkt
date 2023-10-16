@@ -24,4 +24,4 @@
 (define (sqrt x)
   (sqrt-iter 1.0 x))
 
-(sqrt 9)
+(good-enough? 1.41421562745097 2)

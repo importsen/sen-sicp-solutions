@@ -1,7 +1,7 @@
 
 #lang sicp
 
-==============================================================================
+;=============================================================================
 ; 1.1 
 
 10
@@ -50,14 +50,14 @@
    (+ a 1))
 ;16
 
-==============================================================================
+;=============================================================================
 ;1.2
 
 (/ (+ 5 4 (- 2 
              (- 3 (+ 6 (/ 4 5)))))
    (* 3 (- 6 2)(- 2 7)))
 
-==============================================================================
+;=============================================================================
 ; 1.3
 
 (define (square x) (* x x))
@@ -76,7 +76,7 @@
 (bigger-numbs -4 23 1)
 (bigger-numbs 23 1 -4)
 
-==============================================================================
+;=============================================================================
 ;1.4
 
 (define (a-plus-abs-b a b)
@@ -92,19 +92,19 @@
 ; subtracts a from b, insureing that b returns as a postive number regardless
 ; if a is a positive or negitive number. 
 
-==============================================================================
+;=============================================================================
 ;1.5
 
-(define (p) (p))
+; NOTE running this procedure will cause a endless loop
 
-(define (test x y)
-  (if (= x 0)
-      0
-      y))
+; (define (test x y)
+;  (if (= x 0)
+;      0
+;      y))
 
-(test 0 (p))
-(test 1 (p))
-(test -1 (p))
+; (test 0 (p))
+; (test 1 (p))
+; (test -1 (p))
 
 ; with applicative order the (p) procedure will be in a infinite loop
 ; because p will evalutate itself.
@@ -112,7 +112,43 @@
 ; in a normal order the interpreter will "fully expand and reduce" which 
 ; result with 0 or p being returned if its not equal to 0.
 
-==============================================================================
+;=============================================================================
 ; 1.6
 
+(define (square-1.6 x) (* x x)) 
+; NOTE repeated procedure's name will be suffixed with execerise number to 
+; avoid dublicate indentifier errors running this module.
 
+(define (abs x)
+  (cond ((< x 0) (- x))
+        (else x)))
+
+;original procedure
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x)
+                 x)))
+
+;modified procedure
+
+;(define (sqrt-iter guess x)
+;  (if (good-enough? guess x)
+;      guess
+;     (sqrt-iter (improve guess x)
+;                 x)))
+
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (good-enough? guess x)
+  (< (abs (- (square-1.6 guess) x)) 0.001))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+(sqrt 2)
