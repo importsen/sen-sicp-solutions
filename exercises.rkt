@@ -164,28 +164,73 @@
 ; 1.7
 
 
-(define (square x) (* x x))
+;(define (square x) (* x x))
 
-(define (abs x)
-  (cond ((< x 0) (- x))
+;(define (abs x)
+;  (cond ((< x 0) (- x))
+;        (else x)))
+
+;(define (sqrt-iter guess x)
+;  (if (good-enough? guess x)
+;      guess
+;      (sqrt-iter (improve guess x)
+;                 x)))
+
+;(define (improve guess x)
+;  (average guess (/ x guess)))
+
+;(define (average x y)
+;  (/ (+ x y) 2))
+
+;(define (good-enough? guess x)
+;  (< (abs (- (square guess) x)) 0.001))
+
+;(define (sqrt x)
+;  (sqrt-iter 1.0 x))
+
+;(sqrt 1234567890123)
+;(sqrt 12345678901234) running this will not finish the program.
+;(sqrt 12345678901230)
+;(sqrt 0.000000000123)
+;(square (sqrt 0.000000000123))
+
+; if the number is large enough, the program will not be able to compute
+; the program. even with very small numbers the result will be inaccurate.
+;
+; this is due to how numbers are computed in the lowest level in the machine.
+; the machine's has a finte amount of space to compute numbers and floating
+; points are rounded out. this program is conflicting that logic. thus for 
+; extremely large numbers the square root program will never finish. 
+;
+; for small numbers its not useful when the initial guess quickly becomes 
+; smaller then 0.001. 
+;
+; alternative procedure:
+; (define (good-enough? previous-guess guess)
+;   (< (abs (/ (- guess previous-guess) guess)) 0.00000000001)
+;
+;=============================================================================
+;1.8
+;TODO will figure this out later 
+;(define (cube x) (* x x x))
+
+;(define (abs x)
+;  (cond ((< x 0) (- x))
         (else x)))
 
-(define (sqrt-iter guess x)
-  (if (good-enough? guess x)
-      guess
-      (sqrt-iter (improve guess x)
-                 x)))
+;(define (cube-root-iter guess x)
+;  (if (good-enough? (improve guess x) guess)
+;      guess
+;      (cube-root-iter (improve guess x)
+;                 x)))
 
-(define (improve guess x)
-  (average guess (/ x guess)))
+;(define (improve guess x)
+;  (/ (+ (/ x (* guess guess) (* 2 guess)) 3)))
 
-(define (average x y)
-  (/ (+ x y) 2))
+;(define (good-enough? previous-guess guess)
+;  (< (abs (/ (- guess previous-guess) guess)) 0.00000000001))
 
-(define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
+;(define (cube-root x)
+;  (cube-root-iter 1.0 x))
 
-(define (sqrt x)
-  (sqrt-iter 1.0 x))
-
-(sqrt 0.00000000001)
+;(cube-root x)
