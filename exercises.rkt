@@ -211,26 +211,34 @@
 ;
 ;=============================================================================
 ;1.8
-;TODO will figure this out later 
-;(define (cube x) (* x x x))
+;TODO will figure this out later
 
-;(define (abs x)
-;  (cond ((< x 0) (- x))
-        (else x)))
+(define (square x)(* x x))
 
-;(define (cube-root-iter guess x)
-;  (if (good-enough? (improve guess x) guess)
-;      guess
-;      (cube-root-iter (improve guess x)
-;                 x)))
+(define (cube-root-iter guess previous-guess x)
+  (if (good-enough? guess previous-guess)
+      guess
+      (cube-root-iter (improve guess x)
+                guess
+                x)))
 
-;(define (improve guess x)
-;  (/ (+ (/ x (* guess guess) (* 2 guess)) 3)))
+(define (average x y)
+  (/ (+ x y) 2))
 
-;(define (good-enough? previous-guess guess)
-;  (< (abs (/ (- guess previous-guess) guess)) 0.00000000001))
+(define (improve guess x)
+  (/ (+ (/ x (* guess guess))
+        (* 2 guess)) 
+  3))
 
-;(define (cube-root x)
-;  (cube-root-iter 1.0 x))
+(define (good-enough? previous-guess guess)
+  (< (abs (- guess previous-guess)) 0.001))
 
-;(cube-root x)
+(define (cube-root x)
+  (cube-root-iter 1.0 0 x))
+
+(cube-root 25)
+
+
+;=============================================================================
+
+
