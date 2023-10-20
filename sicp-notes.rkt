@@ -1,27 +1,29 @@
 #lang sicp
 
-(define (sqrt x)
-  (sqrt-iter 1.0 x))
+; linear recursion
+;(define (factorial n)
+; (if (= n 1)
+;    1
+;    (* n (factorial (- n 1)))))
 
-(define (sqrt-iter guess x)
-  (if (good-enough? guess x) 
-  guess
-  (sqrt-iter (improve guess x) x)))
+;(factorial 6)
 
-(define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
+; linear iterative
+(define factorial)
+  (fact-iter 1 1 n)
 
-(define (improve guess x)
-  (average guess (/ x guess)))
+(define (fact-iter product counter max-count)
+  (if (> counter max-count)
+    product
+    (fact-iter (* counter product)
+               (+ counter 1)
+               max-count)))
 
-
-(define (sqrt x)
-  (define (good-enough? guess x)
-    (< (abs (- (square guess) x)) 0.001))
-  (define (improve guess x)
-    (average guess (/ x guess)))
-  (define (sqrt-iter guess)
-    (if (good-enough? guess)
-        guess
-        (sqrt-iter (improve guess)))) 
-  (sqrt-iter 1.0))
+; block structure
+;(define (factorial n)
+; (define (iter product counter)
+;   (if (> counter n)
+;       product
+;       (iter (* counter product)
+;             (+ counter 1))))
+; (iter 1 1)
