@@ -236,14 +236,24 @@
 ;=============================================================================
 ;1.9
 
-(define (+ a b)
-  (if (= a 0)
-    b
-    (inc (+ (dec a) b))))
+;(define (+ a b)
+;  (if (= a 0)
+;    b
+;    (inc (+ (dec a) b))))
 
-(define (+ a b)
-  (if (= a 0)
-    b
-    (+ (dec a) (inc b))))
+;(define (+ a b)
+;  (if (= a 0)
+;    b
+;    (+ (dec a) (inc b))))
+;
+; the first procedure checks if you are adding a number by zero. if so it 
+; returns the other integer. if not it will increment the sum of a decrement
+; of a and b. the onext procedure will also check if a number is added by 
+; zero. after the check, it adds the sum of the decrement of a and the 
+; increment of b. both are iterative because theres no procedure calling into
+; itself and the state keep tracks of the number of increments. 
+;=============================================================================
+;1.10
 
-(+ 4 5)
+
+
