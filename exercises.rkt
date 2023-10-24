@@ -251,9 +251,22 @@
 ; of a and b. the onext procedure will also check if a number is added by 
 ; zero. after the check, it adds the sum of the decrement of a and the 
 ; increment of b. both are iterative because theres no procedure calling into
-; itself and the state keep tracks of the number of increments. 
+; itself and the state keep tracks of the number of increments. both will add 
+; to 9. 
 ;=============================================================================
 ;1.10
 
+(define (A x y)
+  (cond ((= y 0) 0)
+        ((= x 0) (* 2 y))
+        ((= y 1) 2)
+        (else (A x (- y 1)))))
 
+(A 1 10)
+;2 
 
+(A 2 4)
+;2 
+
+(A 3 3)
+;2
