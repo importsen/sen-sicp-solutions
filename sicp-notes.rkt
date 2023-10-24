@@ -1,29 +1,37 @@
 #lang sicp
 
-; linear recursion
-;(define (factorial n)
-; (if (= n 1)
-;    1
-;    (* n (factorial (- n 1)))))
+;=============================================================================
+;1.2.2 tree recursion
 
-;(factorial 6)
+;bad optimization
 
-; linear iterative
-(define factorial)
-  (fact-iter 1 1 n)
+;(define (fib n)
+;  (cond ((= n 0) 0)
+;        ((= n 0) 1)
+;        (else (+ (fib (- n 1))
+;                 (fib (- n 2))))))
 
-(define (fact-iter product counter max-count)
-  (if (> counter max-count)
-    product
-    (fact-iter (* counter product)
-               (+ counter 1)
-               max-count)))
 
-; block structure
-;(define (factorial n)
-; (define (iter product counter)
-;   (if (> counter n)
-;       product
-;       (iter (* counter product)
-;             (+ counter 1))))
-; (iter 1 1)
+;(define (fib n)
+;  (fib-iter 1 0 n))
+
+;(define (fib-iter a b count)
+;  (if (= count 0)
+;      b 
+;      (fib-iter (+ a b) a (- count 1))))
+
+; fib 10 = 1 0 10
+; fib-iter 1 0 9
+; fib-iter 1 1 8
+; fib-iter 2 1 7
+; fib-iter 3 2 6
+; fib-iter 5 3 5
+; fib-iter 8 5 4
+; fib-iter 13 8 3
+; fib-iter 21 13 2
+; fib-iter 34 21 1
+; fib-iter 55 34 0
+; if count = 0, b 
+; so b is 55 thus (fib 10) = 55
+
+; (fib 10)
