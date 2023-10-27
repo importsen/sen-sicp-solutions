@@ -35,3 +35,9 @@
 ; so b is 55 thus (fib 10) = 55
 
 ; (fib 10)
+
+;=============================================================================
+; example: counting change
+
+(define (count-change amount)
+  (cc amount 5))
